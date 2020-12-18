@@ -12,7 +12,6 @@ namespace KandilliAlarmer
         public Form1()
         {
             InitializeComponent();
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -37,7 +36,6 @@ namespace KandilliAlarmer
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
             foreach (HtmlElement element in webBrowser1.Document.GetElementsByTagName("pre"))
             {
                 using (StreamWriter writer = new StreamWriter("C:\\kand\\kandilli.txt"))
@@ -64,7 +62,6 @@ namespace KandilliAlarmer
                     }
                 }
             }
-
         }
 
         private void CheckEarthQuake()
@@ -83,10 +80,10 @@ namespace KandilliAlarmer
                         string message = "";
                         if (LastDate != date)
                         {
-                            if (x >= 4.0)
+                            if (x >= 4.0) // 4'ten büyük depremleri bildir
                             {
                                 message = "Meydana Geldigi Tarih : " + date + Environment.NewLine + "Meydana geldiği yer: " + loc + Environment.NewLine + " Şiddet: " + ml;
-                            SendMail("umit.unal@zerodensity.tv", message);                            
+                                SendMail("umit.unal@zerodensity.tv", message);
                             }
                             LastDate = date;
                         }
@@ -96,8 +93,6 @@ namespace KandilliAlarmer
         }
         private void button2_Click(object sender, EventArgs e)
         {
-
-          
         }
         private void SendMail(string to, string message)
         {
